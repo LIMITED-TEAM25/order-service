@@ -1,9 +1,10 @@
 package com.sparta.limited.order_service.infrastructure.repository;
 
+import com.sparta.limited.common_module.exception.BusinessException;
+import com.sparta.limited.common_module.exception.ErrorCode;
 import com.sparta.limited.order_service.domain.model.Order;
 import com.sparta.limited.order_service.domain.repository.OrderRepository;
 import com.sparta.limited.order_service.infrastructure.persistence.JpaOrderRepository;
-import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -20,7 +21,8 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public Optional<Order> findById(UUID id) {
-        return jpaOrderRepository.findById(id);
+    public Order findById(UUID id) {
+        return jpaOrderRepository.findById(id)
+            .orElseThrow(() -> new BusinessException(ErrorCode.RESOURCES_NOT_FOUND));
     }
 }
