@@ -8,4 +8,6 @@ public interface OrderRepository {
     void save(Order order);
 
     Order findById(UUID id);
+
+    boolean existsByUserIdAndProductId(Long userId, UUID productId);
 }

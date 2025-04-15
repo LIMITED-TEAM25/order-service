@@ -6,6 +6,8 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface JpaOrderRepository extends JpaRepository<Order, UUID> {
-    
+
     Optional<Order> findById(UUID id);
+
+    boolean existsByUserIdAndProductId(Long userId, UUID productId);
 }
