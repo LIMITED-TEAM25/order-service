@@ -36,7 +36,7 @@ ext {
 
 dependencies {
     // 공통 모듈
-    implementation 'com.sparta.limited:common-module:1.1.1'
+    implementation 'com.sparta.limited:common-module:1.2.0'
 
     // jpa
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -47,8 +47,8 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
 
     // MSA 관련
-//    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
     // DB
     runtimeOnly 'org.postgresql:postgresql'

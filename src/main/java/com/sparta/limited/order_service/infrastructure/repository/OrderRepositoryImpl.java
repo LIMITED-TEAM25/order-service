@@ -25,4 +25,9 @@ public class OrderRepositoryImpl implements OrderRepository {
         return jpaOrderRepository.findById(id)
             .orElseThrow(() -> new BusinessException(ErrorCode.RESOURCES_NOT_FOUND));
     }
+
+    @Override
+    public boolean existsByUserIdAndProductId(Long userId, UUID productId) {
+        return jpaOrderRepository.existsByUserIdAndProductId(userId, productId);
+    }
 }
