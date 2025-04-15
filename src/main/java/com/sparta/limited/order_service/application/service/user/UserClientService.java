@@ -1,7 +1,6 @@
-package com.sparta.limited.order_service.infrastructure.service;
+package com.sparta.limited.order_service.application.service.user;
 
 import com.sparta.limited.order_service.infrastructure.client.UserClient;
-import com.sparta.limited.order_service.infrastructure.client.dto.UserInfo;
 import com.sparta.limited.order_service.infrastructure.client.dto.UserReadResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

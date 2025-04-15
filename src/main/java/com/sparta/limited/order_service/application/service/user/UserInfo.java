@@ -1,4 +1,4 @@
-package com.sparta.limited.order_service.infrastructure.client.dto;
+package com.sparta.limited.order_service.application.service.user;
 
 public record UserInfo(
     String username,

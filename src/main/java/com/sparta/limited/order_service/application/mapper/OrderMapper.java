@@ -2,8 +2,8 @@ package com.sparta.limited.order_service.application.mapper;
 
 import com.sparta.limited.order_service.application.dto.request.OrderCreateRequest;
 import com.sparta.limited.order_service.application.dto.response.OrderCreateResponse;
+import com.sparta.limited.order_service.application.service.user.UserInfo;
 import com.sparta.limited.order_service.domain.model.Order;
-import com.sparta.limited.order_service.infrastructure.client.dto.UserInfo;
 
 public class OrderMapper {
 
