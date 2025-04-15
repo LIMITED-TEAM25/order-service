@@ -28,6 +28,12 @@ public class Order extends BaseEntity {
     @Column(nullable = false)
     private Long userId;
 
+    @Column(nullable = false)
+    private String username;
+
+    @Column(nullable = false)
+    private String address;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private OrderType orderType;
@@ -45,9 +51,12 @@ public class Order extends BaseEntity {
     @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal price;
 
-    private Order(Long userId, OrderType orderType, UUID productId, int quantity,
+    private Order(Long userId, String username, String address, OrderType orderType, UUID productId,
+        int quantity,
         BigDecimal price) {
         this.userId = userId;
+        this.username = username;
+        this.address = address;
         this.orderType = orderType;
         this.status = OrderStatus.CONFIRMED;
         this.productId = productId;
@@ -55,9 +64,11 @@ public class Order extends BaseEntity {
         this.price = price;
     }
 
-    public static Order of(Long userId, OrderType orderType, UUID productId,
-        int quantity, BigDecimal price) {
-        return new Order(userId, orderType, productId, quantity, price);
+    public static Order of(Long userId, String username, String address, OrderType orderType,
+        UUID productId,
+        int quantity,
+        BigDecimal price) {
+        return new Order(userId, username, address, orderType, productId, quantity, price);
     }
 
 }

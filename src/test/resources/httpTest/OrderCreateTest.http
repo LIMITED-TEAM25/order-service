@@ -1,12 +1,11 @@
 ### 주문 생성(성공)
-POST localhost:8080/api/v1/orders
+POST localhost:19094/api/v1/internal/orders
 Content-Type: application/json
+X-User-Id: 1
 
 {
-  "userId": "1",
   "orderType": "AUCTION",
-  "status": "CONFIRMED",
-  "productId": "8a463aa4-b1dc-4f27-9c3f-53b94dc45e74",
+  "productId": "237b8c90-0d8e-4b42-b7db-f56410e55b34",
   "quantity": "1",
   "price": "48000"
 }

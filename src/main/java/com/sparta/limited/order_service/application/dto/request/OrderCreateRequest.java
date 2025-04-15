@@ -7,8 +7,7 @@ import lombok.Getter;
 
 @Getter
 public class OrderCreateRequest {
-
-    private Long userId;
+    
     private OrderType orderType;
     private UUID productId;
     private int quantity;

@@ -5,6 +5,8 @@ import com.sparta.limited.order_service.application.dto.response.OrderCreateResp
 import com.sparta.limited.order_service.application.mapper.OrderMapper;
 import com.sparta.limited.order_service.domain.model.Order;
 import com.sparta.limited.order_service.domain.repository.OrderRepository;
+import com.sparta.limited.order_service.infrastructure.client.dto.UserInfo;
+import com.sparta.limited.order_service.infrastructure.service.UserClientService;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,10 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
+    private final UserClientService userClientService;
 
     @Transactional
-    public OrderCreateResponse createOrder(OrderCreateRequest request) {
-        Order order = OrderMapper.toEntity(request);
+    public OrderCreateResponse createOrder(Long userId, OrderCreateRequest request) {
+        UserInfo userInfo = userClientService.getUserByUserId(userId);
+        Order order = OrderMapper.toEntity(userId, request, userInfo);
         orderRepository.save(order);
         return OrderMapper.toResponse(order);
     }
