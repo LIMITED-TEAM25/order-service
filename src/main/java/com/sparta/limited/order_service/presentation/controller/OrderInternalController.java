@@ -1,5 +1,6 @@
 package com.sparta.limited.order_service.presentation.controller;
 
+import com.sparta.limited.common_module.common.aop.RoleCheck;
 import com.sparta.limited.order_service.application.dto.request.OrderCreateRequest;
 import com.sparta.limited.order_service.application.dto.response.OrderCreateResponse;
 import com.sparta.limited.order_service.application.service.OrderService;
@@ -19,6 +20,7 @@ public class OrderInternalController {
 
     private final OrderService orderService;
 
+    @RoleCheck("ROLE_USER")
     @PostMapping
     ResponseEntity<OrderCreateResponse> createOrder(
         @RequestHeader("X-User-Id") Long userId,
