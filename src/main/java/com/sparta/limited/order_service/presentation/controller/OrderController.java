@@ -1,6 +1,8 @@
 package com.sparta.limited.order_service.presentation.controller;
 
-import com.sparta.limited.order_service.application.dto.response.OrderCreateResponse;
+import com.sparta.limited.common_module.common.annotation.CurrentUserId;
+import com.sparta.limited.common_module.common.aop.RoleCheck;
+import com.sparta.limited.order_service.application.dto.response.OrderReadResponse;
 import com.sparta.limited.order_service.application.service.OrderService;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +19,12 @@ public class OrderController {
 
     private final OrderService orderService;
 
+    @RoleCheck("ROLE_USER")
     @GetMapping("/{id}")
-    ResponseEntity<OrderCreateResponse> getOrder(@PathVariable("id") UUID id) {
-        OrderCreateResponse response = orderService.getOrder(id);
+    ResponseEntity<OrderReadResponse> getOrder(
+        @CurrentUserId Long userId,
+        @PathVariable("id") UUID id) {
+        OrderReadResponse response = orderService.getOrder(userId, id);
         return ResponseEntity.ok(response);
     }
 }
