@@ -8,13 +8,10 @@ spring:
   config:
     import:
       - optional:file:.env[.properties]
-      - classpath:properties/datasource.yml
       - classpath:properties/jpa.yml
+      - classpath:properties/datasource.yml
       - classpath:properties/eureka-client.yml
-      - classpath:properties/actuator.yml
-  profiles:
-    active: local
-    
+
 logging:
   level:
     # 클라이언트 패키지 로깅
