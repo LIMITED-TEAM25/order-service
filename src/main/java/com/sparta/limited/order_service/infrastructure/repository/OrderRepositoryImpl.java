@@ -3,6 +3,7 @@ package com.sparta.limited.order_service.infrastructure.repository;
 import com.sparta.limited.common_module.exception.BusinessException;
 import com.sparta.limited.common_module.exception.ErrorCode;
 import com.sparta.limited.order_service.domain.model.Order;
+import com.sparta.limited.order_service.domain.model.OrderType;
 import com.sparta.limited.order_service.domain.repository.OrderRepository;
 import com.sparta.limited.order_service.infrastructure.persistence.JpaOrderRepository;
 import java.util.UUID;
@@ -27,7 +28,9 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public boolean existsByUserIdAndProductId(Long userId, UUID productId) {
-        return jpaOrderRepository.existsByUserIdAndProductId(userId, productId);
+    public boolean existsByUserIdAndProductIdAndOrderType(Long userId, UUID productId,
+        OrderType orderType) {
+        return jpaOrderRepository.existsByUserIdAndProductIdAndOrderType(userId, productId,
+            orderType);
     }
 }

@@ -1,6 +1,7 @@
 package com.sparta.limited.order_service.domain.repository;
 
 import com.sparta.limited.order_service.domain.model.Order;
+import com.sparta.limited.order_service.domain.model.OrderType;
 import java.util.UUID;
 
 public interface OrderRepository {
@@ -9,5 +10,6 @@ public interface OrderRepository {
 
     Order findById(UUID id);
 
-    boolean existsByUserIdAndProductId(Long userId, UUID productId);
+    boolean existsByUserIdAndProductIdAndOrderType(Long userId, UUID productId,
+        OrderType orderType);
 }
