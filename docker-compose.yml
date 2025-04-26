@@ -1,0 +1,6 @@
+services:
+  order-service:
+    platform: linux/amd64
+    build:
+      dockerfile: Dockerfile
+    image: mummumm/order-service:latest
